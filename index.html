@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>𓆩𓆩DARK𓆪 DEVIL𓆪 BHAI 😈</title>
+<style>
+/* CSS Reset & Core Layout */
+html,body{margin:0;padding:0;height:100%;background:#000;overflow:hidden;-webkit-user-select:none;user-select:none;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+
+/* Background Iframe */
+iframe{position:fixed;top:0;left:0;width:100%;height:100%;border:none;z-index:1;}
+
+/* Corner Lights Animation */
+.corner-light{position:fixed;width:20px;height:20px;z-index:999998;opacity:0.8;pointer-events:none;}
+.corner-1{top:0;left:0;border-top:2px solid #f00;border-left:2px solid #00f;}
+.corner-2{top:0;right:0;border-top:2px solid #0f0;border-right:2px solid #ff0;}
+.corner-3{bottom:0;left:0;border-bottom:2px solid #f00;border-left:2px solid #ff0;}
+.corner-4{bottom:0;right:0;border-bottom:2px solid #0f0;border-right:2px solid #00f;}
+
+@keyframes lightGlow{
+  0%,100%{opacity:0.3;filter:drop-shadow(0 0 2px currentColor);}
+  50%{opacity:0.9;filter:drop-shadow(0 0 8px currentColor) drop-shadow(0 0 12px currentColor);}
+}
+.corner-1{animation:lightGlow 1.5s infinite;color:#f00;}
+.corner-2{animation:lightGlow 1.8s infinite;color:#0f0;}
+.corner-3{animation:lightGlow 2.1s infinite;color:#ff0;}
+.corner-4{animation:lightGlow 2.4s infinite;color:#00f;}
+
+/* Login Box Styling */
+.login-box{position:fixed;top:15px;left:15px;width:130px;background:#0d0d1f;border:3px solid #ff2eff;border-radius:20px;padding:8px;text-align:center;z-index:999999;box-shadow:0 0 20px #ff00ff,0 0 45px #ff00ffcc,0 0 70px #ff00ff66,inset 0 0 10px rgba(255,255,255,0.1);overflow:hidden;transition: transform 0.2s ease;}
+.login-title{font-size:13.5px;font-weight:bold;margin:0 0 8px 0;animation:nameColor 3s infinite linear;}
+@keyframes nameColor{
+  0%{color:#f00;text-shadow:0 0 8px #f00;}
+  25%{color:#00f;text-shadow:0 0 8px #00f;}
+  50%{color:#ff0;text-shadow:0 0 8px #ff0;}
+  75%{color:#0f0;text-shadow:0 0 8px #0f0;}
+  100%{color:#f00;text-shadow:0 0 8px #f00;}
+}
+
+.password-input{width:100px;padding:3px;background:#000;border:2px solid #0f0;border-radius:8px;color:#f00;text-align:center;font-size:10px;margin:3px auto;display:block;outline:none;font-weight:bold;transition: all 0.3s;}
+.password-input::placeholder{color:#0f0;opacity:0.7;}
+.password-input:focus{border-color:#ff0;box-shadow:0 0 8px #ff0;}
+
+.login-btn{width:100px;padding:5px;margin-top:3px;border:none;border-radius:8px;color:#000;font-weight:bold;font-size:11px;cursor:pointer;animation:btnRedGreen 1.5s infinite alternate, btnPulse 0.6s infinite alternate;}
+@keyframes btnRedGreen{
+  0%{background:#f00;box-shadow:0 0 15px #f00,0 0 25px #f00aa;}
+  100%{background:#0f0;box-shadow:0 0 15px #0f0,0 0 25px #0f0aa;}
+}
+@keyframes btnPulse{
+  0%{transform:scale(1);}
+  100%{transform:scale(1.08);}
+}
+
+/* Signal Box Styling */
+.signal-box{position:fixed;top:15px;left:15px;width:130px;background:#0f0f23;border:3px solid #00eeff;border-radius:20px;padding:8px;text-align:center;z-index:999999;display:none;box-shadow:0 0 20px #00ffff,0 0 35px #ff00ffaa,inset 0 0 10px rgba(255,255,255,0.1);}
+.signal-title{font-size:13px;font-weight:bold;margin:0 0 6px 0;animation:nameColor 3s infinite linear;}
+
+.signal-main{font-size:22px;font-weight:bold;margin:4px 0;padding:4px;border-radius:6px;animation:signalColorChange 1.5s infinite alternate, signalPulse 1s infinite alternate;text-shadow:0 0 8px currentColor;}
+@keyframes signalColorChange{
+  0%{color:#f00;box-shadow:0 0 12px #f00;}
+  50%{color:#ff0;}
+  100%{color:#0f0;box-shadow:0 0 12px #0f0;}
+}
+@keyframes signalPulse{
+  0%{transform:scale(1);}
+  100%{transform:scale(1.08);}
+}
+
+.signal-number{font-size:18px;font-weight:bold;margin:4px 0;padding:3px;border-radius:5px;animation:numberColorChange 2s infinite alternate;text-shadow:0 0 6px currentColor;}
+@keyframes numberColorChange{
+  0%{color:#ff00ff;box-shadow:0 0 8px #ff00ff;}
+  25%{color:#00ffff;box-shadow:0 0 8px #00ffff;}
+  50%{color:#ffff00;box-shadow:0 0 8px #ffff00;}
+  75%{color:#ff8800;box-shadow:0 0 8px #ff8800;}
+  100%{color:#ff00ff;box-shadow:0 0 8px #ff00ff;}
+}
+
+.signal-container{display:flex;align-items:center;justify-content:center;gap:6px;margin:6px 0;}
+
+.timer-container{margin:6px 0;}
+.timer{font-size:16px;font-weight:bold;font-family:'Courier New', monospace;padding:3px 6px;border-radius:6px;background:rgba(255,0,0,0.1);border:2px solid #f00;color:#f00;text-shadow:0 0 6px #f00;transition:all 0.3s;}
+.timer.warning{color:#ff0;border-color:#ff0;text-shadow:0 0 6px #ff0;font-size:18px;}
+.timer.critical{color:#0f0;border-color:#0f0;text-shadow:0 0 10px #0f0;font-size:20px;animation:criticalPulse 0.5s infinite alternate;}
+@keyframes criticalPulse{
+  0%{transform:scale(1);}
+  100%{transform:scale(1.15);}
+}
+
+/* Telegram & Interactive Elements */
+.telegram-logo{font-size:16px;color:#0088cc;cursor:pointer;padding:4px;border-radius:50%;transition:all 0.3s;background:rgba(0,136,204,0.1);}
+.telegram-logo:hover{color:#ff0055;transform:scale(1.2);background:rgba(255,0,85,0.2);animation:pulse 0.5s infinite alternate;}
+@keyframes pulse{
+  0%{transform:scale(1.2);}
+  100%{transform:scale(1.4);}
+}
+
+.telegram-popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.97);padding:20px 30px;border-radius:15px;border:2px solid #ff0055;font-weight:bold;font-size:20px;z-index:1000000;display:none;box-shadow:0 0 40px rgba(255,0,85,0.9);text-align:center;animation:popupGlow 1s infinite alternate;}
+@keyframes popupGlow{
+  0%{box-shadow:0 0 25px rgba(255,0,85,0.7);}
+  100%{box-shadow:0 0 50px rgba(255,0,85,1);}
+}
+.telegram-label{font-size:14px;color:#00f7ff;margin-bottom:8px;text-transform:uppercase;}
+.telegram-username{font-size:22px;background:linear-gradient(90deg,#ff0055,#0099ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px;}
+.countdown{font-size:14px;color:#ffcc00;margin-top:10px;font-weight:bold;}
+
+/* Buttons */
+.hide-btn-container{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:8px;}
+.hide-btn{width:48px;padding:3px;border:none;border-radius:6px;color:white;font-weight:bold;font-size:9px;cursor:pointer;animation:hideBtnColor 2s infinite alternate, hideBtnPulse 1s infinite alternate;}
+@keyframes hideBtnColor{
+  0%{background:#f00;box-shadow:0 0 6px #f00;}
+  50%{background:#00f;box-shadow:0 0 6px #00f;}
+  100%{background:#f00;box-shadow:0 0 6px #f00;}
+}
+@keyframes hideBtnPulse{
+  0%{transform:scale(0.9);}
+  100%{transform:scale(1);}
+}
+
+.join-btn{width:48px;padding:3px;border:none;border-radius:6px;color:white;font-weight:bold;font-size:9px;cursor:pointer;background:#f00;box-shadow:0 0 6px #f00;animation:joinBtnPulse 1s infinite alternate;}
+@keyframes joinBtnPulse{
+  0%{transform:scale(0.9);}
+  100%{transform:scale(1);}
+}
+
+/* Floating Logo */
+.signal-logo{position:fixed;top:15px;left:15px;width:60px;height:60px;z-index:999999;cursor:move;display:none;justify-content:center;align-items:center;border-radius:50%;overflow:hidden;}
+.signal-logo .logo-border{position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;border:3px solid transparent;animation:logoBorderRotate 2s linear infinite;z-index:1;pointer-events:none;box-sizing:border-box;}
+.signal-logo .logo-inner{width:calc(100% - 6px);height:calc(100% - 6px);border-radius:50%;overflow:hidden;position:relative;z-index:2;animation:logoPulse 1.5s infinite alternate;margin:3px;}
+.signal-logo img{width:100%;height:100%;object-fit:cover;display:block;}
+@keyframes logoBorderRotate{
+  0%{border-top-color:#f00;border-right-color:#00f;border-bottom-color:#0f0;border-left-color:#ff0;transform:rotate(0deg);}
+  25%{border-top-color:#00f;border-right-color:#0f0;border-bottom-color:#ff0;border-left-color:#f00;transform:rotate(90deg);}
+  50%{border-top-color:#0f0;border-right-color:#ff0;border-bottom-color:#f00;border-left-color:#00f;transform:rotate(180deg);}
+  75%{border-top-color:#ff0;border-right-color:#f00;border-bottom-color:#00f;border-left-color:#0f0;transform:rotate(270deg);}
+  100%{border-top-color:#f00;border-right-color:#00f;border-bottom-color:#0f0;border-left-color:#ff0;transform:rotate(360deg);}
+}
+@keyframes logoPulse{
+  0%{transform:scale(0.9);}
+  100%{transform:scale(1.05);}
+}
+
+/* Popups */
+.success-popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,20,0,0.97);padding:20px 30px;border-radius:15px;border:3px solid #0f0;font-weight:bold;font-size:20px;z-index:1000000;display:none;box-shadow:0 0 40px rgba(0,255,0,0.9),inset 0 0 15px rgba(0,255,0,0.3);text-align:center;animation:successGlow 1s infinite alternate, successPulse 0.5s infinite alternate;color:#0f0;text-shadow:0 0 12px #0f0;}
+@keyframes successGlow{
+  0%{box-shadow:0 0 25px rgba(0,255,0,0.7),inset 0 0 12px rgba(0,255,0,0.2);}
+  100%{box-shadow:0 0 50px rgba(0,255,0,1),inset 0 0 20px rgba(0,255,0,0.5);}
+}
+@keyframes successPulse{
+  0%{transform:translate(-50%,-50%) scale(1);}
+  100%{transform:translate(-50%,-50%) scale(1.05);}
+}
+
+.wrong-password-popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(20,0,0,0.97);padding:20px 30px;border-radius:15px;border:3px solid #f00;font-weight:bold;font-size:20px;z-index:1000000;display:none;box-shadow:0 0 40px rgba(255,0,0,0.9),inset 0 0 15px rgba(255,0,0,0.3);text-align:center;animation:wrongGlow 1s infinite alternate;color:#f00;text-shadow:0 0 12px #f00;}
+@keyframes wrongGlow{
+  0%{box-shadow:0 0 25px rgba(255,0,0,0.7),inset 0 0 12px rgba(255,0,0,0.2);}
+  100%{box-shadow:0 0 50px rgba(255,0,0,1),inset 0 0 20px rgba(255,0,0,0.5);}
+}
+
+.contact-btn{width:100px;padding:8px;margin-top:12px;border:none;border-radius:12px;color:#fff;font-weight:bold;font-size:12px;cursor:pointer;background:linear-gradient(45deg,#0f0,#0a0);box-shadow:0 0 15px #0f0,0 0 30px #0f0aa;animation:contactBtnPulse 0.8s infinite alternate;}
+@keyframes contactBtnPulse{
+  0%{transform:scale(1);box-shadow:0 0 12px #0f0,0 0 25px #0f0aa;}
+  100%{transform:scale(1.08);box-shadow:0 0 20px #0f0,0 0 40px #0f0aa;}
+}
+
+.wrong-text{font-size:18px;margin-bottom:8px;color:#f00;text-shadow:0 0 8px #f00;}
+.success-text{font-size:20px;margin-bottom:8px;color:#0f0;text-shadow:0 0 12px #0f0;}
+
+/* Hacker Message Popup */
+.hacker-message{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.97);z-index:10000000;display:none;color:#0f0;font-family:'Courier New',monospace;overflow:hidden;border:3px solid #f00;border-radius:15px;box-shadow:0 0 40px #f00;width:380px;max-width:90%;max-height:80vh;overflow-y:auto;}
+.hacker-content{padding:15px;position:relative;}
+.hacker-title{color:#f00;font-size:18px;margin-bottom:12px;text-align:center;text-shadow:0 0 8px #f00;line-height:1.3;}
+.hacker-text{color:#0f0;font-size:13px;line-height:1.3;margin-bottom:12px;text-shadow:0 0 2px #0f0;text-align:center;}
+.hacker-contact-btn{color:#fff;font-size:14px;text-align:center;margin:12px 0;border:2px solid #00f7ff;padding:8px;background:linear-gradient(45deg,#ff0055,#0099ff);cursor:pointer;font-weight:bold;border-radius:6px;display:block;width:100%;box-sizing:border-box;animation:contactGlow 1s infinite alternate;}
+@keyframes contactGlow{
+  0%{box-shadow:0 0 6px #ff0055;border-color:#00f7ff;}
+  100%{box-shadow:0 0 12px #0099ff;border-color:#ff0055;}
+}
+.hacker-warning{color:#ff0;font-size:11px;text-align:center;margin-top:12px;padding:8px;border:1px solid #ff0;background:rgba(255,255,0,0.1);border-radius:4px;}
+.hacker-close{display:block;margin:8px auto 0;padding:6px 16px;background:#f00;color:#000;border:none;font-weight:bold;cursor:pointer;font-size:12px;border-radius:5px;}
+.hacker-contact-btn:hover{background:linear-gradient(45deg,#0099ff,#ff0055);transform:scale(1.02);}
+.hacker-close:hover{background:#ff5555;}
+.matrix-bg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;opacity:0.3;pointer-events:none;}
+
+.cmatrix-code{font-family:'Courier New',monospace;font-size:9px;color:#0f0;line-height:9px;letter-spacing:1px;text-shadow:0 0 2px #0f0;white-space:pre-wrap;word-break:break-all;overflow:hidden;}
+
+/* Login Internal Components */
+.login-hide-container{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:8px;}
+.login-hide-btn{width:48px;padding:3px;border:none;border-radius:6px;color:white;font-weight:bold;font-size:9px;cursor:pointer;animation:loginHideBtnColor 2s infinite alternate, loginHideBtnPulse 1s infinite alternate;}
+@keyframes loginHideBtnColor{
+  0%{background:#f00;box-shadow:0 0 6px #f00;}
+  50%{background:#00f;box-shadow:0 0 6px #00f;}
+  100%{background:#f00;box-shadow:0 0 6px #f00;}
+}
+@keyframes loginHideBtnPulse{
+  0%{transform:scale(0.9);}
+  100%{transform:scale(1);}
+}
+
+.login-join-btn{width:48px;padding:3px;border:none;border-radius:6px;color:white;font-weight:bold;font-size:9px;cursor:pointer;background:#f00;box-shadow:0 0 6px #f00;animation:loginJoinBtnPulse 1s infinite alternate;}
+@keyframes loginJoinBtnPulse{
+  0%{transform:scale(0.9);}
+  100%{transform:scale(1);}
+}
+
+.login-logo-container{margin:4px auto 8px;width:60px;height:60px;position:relative;}
+.login-logo{width:calc(100% - 6px);height:calc(100% - 6px);border-radius:50%;overflow:hidden;position:relative;z-index:2;animation:logoPulse 1.5s infinite alternate;margin:3px;}
+.login-logo img{width:100%;height:100%;object-fit:cover;display:block;}
+.login-logo-border{position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;border:3px solid transparent;animation:logoBorderRotate 2s linear infinite;z-index:1;pointer-events:none;box-sizing:border-box;}
+
+/* Draggable Handles */
+.drag-icons{position:absolute;width:100%;height:100%;top:0;left:0;pointer-events:none;z-index:1000;}
+.drag-icon{position:absolute;width:14px;height:14px;background:#f00;border-radius:50%;box-shadow:0 0 8px #f00, 0 0 12px #ff0000;pointer-events:all;cursor:move;border:1px solid #fff;}
+.drag-icon.top-left{top:-7px;left:-7px;}
+.drag-icon.top-right{top:-7px;right:-7px;}
+.drag-icon.bottom-left{bottom:-7px;left:-7px;}
+.drag-icon.bottom-right{bottom:-7px;right:-7px;}
+.drag-icon:hover{background:#ff0;box-shadow:0 0 10px #ff0, 0 0 18px #ff0000;}
+
+/* Stars Animation */
+.stars-container{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:-1;overflow:hidden;border-radius:20px;}
+.star{position:absolute;width:2px;height:2px;background:#FFD700;border-radius:50%;box-shadow:0 0 3px #FFD700, 0 0 5px #FFA500;animation:starFall linear infinite;}
+@keyframes starFall{
+  0%{transform:translateY(-10px) translateX(0);opacity:0;}
+  10%{opacity:1;}
+  90%{opacity:1;}
+  100%{transform:translateY(150px) translateX(10px);opacity:0;}
+}
+
+/* Device Locked Popup (Hidden in logic but style kept) */
+.device-locked-popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(20,0,0,0.97);padding:20px 30px;border-radius:15px;border:3px solid #ff0;font-weight:bold;font-size:16px;z-index:1000000;display:none;box-shadow:0 0 40px rgba(255,255,0,0.9),inset 0 0 15px rgba(255,255,0,0.3);text-align:center;color:#ff0;text-shadow:0 0 12px #ff0;max-width:90%;}
+.device-locked-text{font-size:18px;margin-bottom:8px;color:#ff0;text-shadow:0 0 8px #ff0;}
+.device-locked-message{font-size:14px;margin-bottom:10px;}
+.device-locked-contact{width:100px;padding:8px;margin-top:12px;border:none;border-radius:12px;color:#000;font-weight:bold;font-size:12px;cursor:pointer;background:#ff0;box-shadow:0 0 15px #ff0;}
+</style>
+</head>
+<body>
+<iframe src="https://www.pune91.com/#/register?invitationCode=661256900663" id="mainFrame" loading="eager"></iframe>
+
+<div class="corner-light corner-1"></div>
+<div class="corner-light corner-2"></div>
+<div class="corner-light corner-3"></div>
+<div class="corner-light corner-4"></div>
+
+<div class="login-box" id="loginBox">
+  <div class="stars-container" id="starsContainer"></div>
+  <div class="drag-icons">
+    <div class="drag-icon top-left" data-drag="top-left"></div>
+    <div class="drag-icon top-right" data-drag="top-right"></div>
+    <div class="drag-icon bottom-left" data-drag="bottom-left"></div>
+    <div class="drag-icon bottom-right" data-drag="bottom-right"></div>
+  </div>
+  <div class="login-title">𓆩DARK𓆪 𓆩DEVIL𓆪 BHAI 😈</div>
+  
+  <div class="login-logo-container">
+    <div class="login-logo-border"></div>
+    <div class="login-logo">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicWKOAfBQKmUZaMzK65BQs3keoxdnqtHYoxvLqazxO79rwhNBuOAqefAcqv9kPEU3p5PSVDe8VQ4qsLhdunDWGCwNMhXKc3QuazlUyG4HurHhKOwqBxBJbXFtbTBWUnddB2J5cckALZenPo6KQJwLzysEohESXvLwn3V8o-hTNLAw2Bv3TSJIqINLlU4J3/s734/1000034634.jpg" alt="DARK Logo" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #f00 0%, #00f 50%, #0f0 100%)'; this.parentElement.style.display='flex'; this.parentElement.style.justifyContent='center'; this.parentElement.style.alignItems='center'; this.parentElement.innerHTML='<span style=\"color:#fff;font-size:50px;font-weight:bold;text-shadow:0 0 25px #000;\">DARK</span>';">
+    </div>
+  </div>
+  
+  <input type="password" placeholder="Password" class="password-input" id="passwordInput">
+  <button class="login-btn" id="loginBtn">𝐋𝐎𝐆𝐈𝐍</button>
+  <div class="login-hide-container">
+    <button class="login-hide-btn" id="loginHideBtn">𝐇𝐈𝐃𝐄</button>
+    <button class="login-join-btn" id="loginJoinBtn">𝐉𝐎𝐈𝐍</button>
+  </div>
+</div>
+
+<div class="signal-box" id="signalBox">
+  <div class="drag-icons">
+    <div class="drag-icon top-left" data-drag="top-left"></div>
+    <div class="drag-icon top-right" data-drag="top-right"></div>
+    <div class="drag-icon bottom-left" data-drag="bottom-left"></div>
+    <div class="drag-icon bottom-right" data-drag="bottom-right"></div>
+  </div>
+  <div class="signal-title">𓆩DARK𓆪 𓆩DEVIL𓆪 BHAI 😈</div>
+  <div class="signal-main" id="signalDisplay">---</div>
+  <div class="signal-number" id="signalNumber">---</div>
+  <div class="timer-container">
+    <div class="timer" id="timerDisplay">30</div>
+  </div>
+  <div class="signal-container">
+    <div class="telegram-logo" id="telegramLogo">✈</div>
+  </div>
+  <div class="hide-btn-container">
+    <button class="hide-btn" id="hideBtn">𝐇𝐈𝐃𝐄</button>
+    <button class="join-btn" id="joinBtn">𝐉𝐎𝐈𝐍</button>
+  </div>
+</div>
+
+<div class="signal-logo" id="signalLogo">
+  <div class="logo-border"></div>
+  <div class="logo-inner">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicWKOAfBQKmUZaMzK65BQs3keoxdnqtHYoxvLqazxO79rwhNBuOAqefAcqv9kPEU3p5PSVDe8VQ4qsLhdunDWGCwNMhXKc3QuazlUyG4HurHhKOwqBxBJbXFtbTBWUnddB2J5cckALZenPo6KQJwLzysEohESXvLwn3V8o-hTNLAw2Bv3TSJIqINLlU4J3/s734/1000034634.jpg" alt="DARK Logo" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #f00 0%, #00f 50%, #0f0 100%)'; this.parentElement.style.display='flex'; this.parentElement.style.justifyContent='center'; this.parentElement.style.alignItems='center'; this.parentElement.innerHTML='<span style=\"color:#fff;font-size:20px;font-weight:bold;text-shadow:0 0 10px #000;\">DARK</span>';">
+  </div>
+</div>
+
+<div class="telegram-popup" id="telegramPopup">
+  <div class="telegram-label">প্রফেশনাল হ্যাক বানাতে</div>
+  <div class="telegram-username">যোগাযোগ করুন</div>
+  <div class="countdown" id="countdown">Redirecting 3...</div>
+</div>
+
+<div class="success-popup" id="successPopup">
+  <div class="success-text">𝐒𝐔𝐂𝐂𝐄𝐒𝐒𝐅𝐔𝐋</div>
+</div>
+
+<div class="wrong-password-popup" id="wrongPasswordPopup">
+  <div class="wrong-text">Wʀᴏɴɢ Pᴀssᴡᴏʀᴅ</div>
+  <button class="contact-btn" id="contactBtn">𝐂𝐎𝐍𝐓𝐀𝐂𝐓</button>
+</div>
+
+<div class="device-locked-popup" id="deviceLockedPopup">
+  <div class="device-locked-text">⚠️ Device Locked ⚠️</div>
+  <div class="device-locked-message" id="lockedMessage"></div>
+  <button class="device-locked-contact" id="lockedContactBtn">𝐂𝐎𝐍𝐓𝐀𝐂𝐓</button>
+</div>
+
+<div class="hacker-message" id="hackerMessage">
+  <div class="matrix-bg" id="matrixBg"></div>
+  <div class="hacker-content">
+    <div class="hacker-title">༒𓆩DARK𓆪༒DEVILBHAI༒࿐</div>
+    
+    <div class="hacker-text">
+      I am DARK DEVIL BAHI 𝐇𝐀𝐂𝐊𝐄𝐑 — untouchable, unbreakable. You're just a bot.
+    </div>
+    
+    <div class="hacker-text">
+      Think you're brave enough? Contact me at t.me/ariyan99pro — enter my zone at your own risk.
+    </div>
+    
+    <button class="hacker-contact-btn" id="hackerContactBtn">
+      𝐂𝐎𝐍𝐓𝐀𝐂𝐓 𝐌𝐄 𝐑𝐗 
+    </button>
+    
+    <div class="hacker-warning">
+      ⚠️ 𝐖𝐀𝐑𝐍𝐈𝐍𝐆: Stop embarrassing yourself, you talentless rat. I am the one who built the playground you're trying to play in. Don't try to crawl where I fly. Go back to your hole and rot, because you're just a tiny ant in front of your God ⚠️
+    </div>
+    
+    <button class="hacker-close" id="hackerClose">𝐁𝐀𝐂𝐊 𝐓𝐎 𝐑𝐄𝐀𝐋𝐈𝐓𝐘</button>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Configuration
+  const config = {
+    telegram1: 'https://t.me/_2BROTHERS',
+    telegram2: 'https://t.me/ariyan99pro',
+    telegram3: 'https://t.me/Raja_boss001',
+    // Device ID logic is removed per request
+  };
+
+  class SignalAPI {
+    constructor() {
+      this.currentSignal = null;
+      this.isLoggedIn = false;
+      this.timerValue = 30;
+      this.timerInterval = null;
+    }
+
+    async fetchSignal() {
+      // Since we are client-side only without a real backend, we generate random signals.
+      // Original logic simulated backend; we keep the simulation for interactivity.
+      return this.generateRandomSignal();
+    }
+
+    generateRandomSignal() {
+      const signalType = Math.random() > 0.5 ? 'BIG' : 'SMALL';
+      let num1, num2;
+      
+      if (signalType === 'BIG') {
+        num1 = Math.floor(Math.random() * 4) + 6;
+        num2 = Math.floor(Math.random() * 4) + 6;
+      } else {
+        num1 = Math.floor(Math.random() * 5);
+        num2 = Math.floor(Math.random() * 5);
+      }
+      
+      if (num1 === num2) {
+        if (signalType === 'BIG') {
+          num2 = num2 === 9 ? 6 : num2 + 1;
+        } else {
+          num2 = num2 === 4 ? 0 : num2 + 1;
+        }
+      }
+      
+      const signalData = {
+        success: true,
+        signal: signalType,
+        number: num1 + '/' + num2,
+        color: signalType === 'BIG' ? 'Green' : 'Red',
+        time_remaining: 30,
+        accuracy: '92%'
+      };
+      
+      this.currentSignal = signalData;
+      this.timerValue = 30;
+      return signalData;
+    }
+
+    getCurrentSignal() {
+      return this.currentSignal;
+    }
+
+    startTimer(callback) {
+      if (this.timerInterval) {
+        clearInterval(this.timerInterval);
+      }
+      
+      this.timerInterval = setInterval(() => {
+        this.timerValue--;
+        
+        if (this.timerValue <= 0) {
+          this.timerValue = 30;
+          this.fetchSignal().then(() => {
+            if (callback) callback();
+          });
+        }
+        
+        if (callback) callback(this.timerValue);
+      }, 1000);
+    }
+
+    stopTimer() {
+      if (this.timerInterval) {
+        clearInterval(this.timerInterval);
+        this.timerInterval = null;
+      }
+    }
+
+    getTimerValue() {
+      return this.timerValue;
+    }
+  }
+
+  // DOM Elements
+  const loginBox = document.getElementById('loginBox');
+  const passwordInput = document.getElementById('passwordInput');
+  const loginBtn = document.getElementById('loginBtn');
+  const signalBox = document.getElementById('signalBox');
+  const signalDisplay = document.getElementById('signalDisplay');
+  const signalNumber = document.getElementById('signalNumber');
+  const timerDisplay = document.getElementById('timerDisplay');
+  const telegramLogo = document.getElementById('telegramLogo');
+  const telegramPopup = document.getElementById('telegramPopup');
+  const countdownElement = document.getElementById('countdown');
+  const hideBtn = document.getElementById('hideBtn');
+  const joinBtn = document.getElementById('joinBtn');
+  const signalLogo = document.getElementById('signalLogo');
+  const successPopup = document.getElementById('successPopup');
+  const wrongPasswordPopup = document.getElementById('wrongPasswordPopup');
+  const contactBtn = document.getElementById('contactBtn');
+  const hackerMessage = document.getElementById('hackerMessage');
+  const hackerClose = document.getElementById('hackerClose');
+  const hackerContactBtn = document.getElementById('hackerContactBtn');
+  const matrixBg = document.getElementById('matrixBg');
+  const loginHideBtn = document.getElementById('loginHideBtn');
+  const loginJoinBtn = document.getElementById('loginJoinBtn');
+  const starsContainer = document.getElementById('starsContainer');
+  // Device locked elements still exist in DOM but logic is removed
+  const deviceLockedPopup = document.getElementById('deviceLockedPopup');
+  const lockedContactBtn = document.getElementById('lockedContactBtn');
+  
+  let signalApi = new SignalAPI();
+  let isMinimized = false;
+  let debugDetected = false;
+  let matrixInterval;
+  let securityAttempts = 0;
+  let isLoggedIn = false;
+  
+  // --- Animation & Visual Effects ---
+  
+  function createStars() {
+    if (!starsContainer) return;
+    starsContainer.innerHTML = '';
+    const starCount = 25;
+    
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      
+      const left = Math.random() * 100;
+      const delay = Math.random() * 5;
+      const duration = 2 + Math.random() * 3;
+      const size = 1 + Math.random() * 2;
+      
+      star.style.left = left + '%';
+      star.style.animationDelay = delay + 's';
+      star.style.animationDuration = duration + 's';
+      star.style.width = size + 'px';
+      star.style.height = size + 'px';
+      
+      starsContainer.appendChild(star);
+    }
+  }
+  
+  function startCmatrixEffect() {
+    const cmatrixChars = "01";
+    const hexChars = "0123456789ABCDEF";
+    const codeChars = "{}[]<>()=+-*/&|^%~!@#$?";
+    const banglaChars = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
+    
+    const allChars = cmatrixChars + hexChars + codeChars + banglaChars;
+    
+    matrixBg.innerHTML = '';
+    matrixBg.className = 'cmatrix-code';
+    const columns = Math.floor(matrixBg.clientWidth / 8);
+    const drops = Array(columns).fill(1);
+    
+    function drawCmatrix() {
+      let output = '';
+      for(let i = 0; i < drops.length; i++) {
+        const char = allChars[Math.floor(Math.random() * allChars.length)];
+        const opacity = 0.2 + Math.random() * 0.6;
+        const color = Math.random() > 0.7 ? '#0f0' : '#090';
+        const fontSize = 8 + Math.random() * 4;
+        const fontWeight = Math.random() > 0.5 ? 'bold' : 'normal';
+        
+        output += `<span style="color: ${color}; opacity: ${opacity}; font-size: ${fontSize}px; font-weight: ${fontWeight};">${char}</span>`;
+        
+        if(drops[i] * 12 > matrixBg.clientHeight && Math.random() > 0.97) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+      
+      matrixBg.innerHTML = output;
+      matrixBg.style.lineHeight = '10px';
+      matrixBg.style.wordBreak = 'break-all';
+      matrixBg.style.whiteSpace = 'pre-wrap';
+    }
+    
+    matrixInterval = setInterval(drawCmatrix, 80);
+    drawCmatrix();
+  }
+  
+  function stopMatrixEffect() {
+    if (matrixInterval) {
+      clearInterval(matrixInterval);
+    }
+    matrixBg.innerHTML = '';
+    matrixBg.className = 'matrix-bg';
+  }
+
+  // --- Core Logic: Login Validation (MODIFIED) ---
+  
+  async function validateLogin() {
+    const password = passwordInput.value.trim();
+    
+    if (!password) {
+      wrongPasswordPopup.style.display = 'block';
+      setTimeout(function() {
+        wrongPasswordPopup.style.display = 'none';
+      }, 3000);
+      return;
+    }
+    
+    if (password === 'DEVIL123') {
+      // Success Logic
+      isLoggedIn = true;
+      signalApi.isLoggedIn = true;
+      
+      successPopup.style.display = 'block';
+      setTimeout(function() {
+        successPopup.style.display = 'none';
+        loginBox.style.display = 'none';
+        signalBox.style.display = 'block';
+        signalLogo.style.display = 'none';
+        startSignalSystem();
+      }, 1500);
+    } else {
+      // Fail Logic
+      wrongPasswordPopup.style.display = 'block';
+      passwordInput.value = '';
+      setTimeout(function() {
+        wrongPasswordPopup.style.display = 'none';
+      }, 3000);
+    }
+    // MODIFICATION END
+  }
+  
+  // --- Event Listeners ---
+  
+  loginBtn.addEventListener('click', function() {
+    validateLogin();
+  });
+  
+  loginHideBtn.addEventListener('click', function() {
+    loginBox.style.display = 'none';
+    signalLogo.style.display = 'flex';
+    isMinimized = true;
+    const rect = loginBox.getBoundingClientRect();
+    signalLogo.style.top = rect.top + 'px';
+    signalLogo.style.left = rect.left + 'px';
+  });
+  
+  loginJoinBtn.addEventListener('click', function() {
+    window.open(config.telegram1, '_blank');
+  });
+  
+  joinBtn.addEventListener('click', function() {
+    window.open(config.telegram1, '_blank');
+  });
+  
+  lockedContactBtn.addEventListener('click', function() {
+    window.open(config.telegram3, '_blank');
+    deviceLockedPopup.style.display = 'none';
+  });
+  
+  passwordInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') validateLogin();
+  });
+  
+  passwordInput.addEventListener('input', function() {
+    this.style.color = '#f00';
+  });
+  
+  contactBtn.addEventListener('click', function() {
+    window.open(config.telegram3, '_blank');
+    wrongPasswordPopup.style.display = 'none';
+  });
+  
+  hackerContactBtn.addEventListener('click', function() {
+    window.open(config.telegram2, '_blank');
+  });
+  
+  hackerClose.addEventListener('click', function() {
+    hackerMessage.style.display = 'none';
+    stopMatrixEffect();
+  });
+  
+  function showHackerMessage() {
+    if (!debugDetected) {
+      debugDetected = true;
+      hackerMessage.style.display = 'block';
+      startCmatrixEffect();
+    }
+  }
+  
+  // --- Draggable Functionality ---
+  
+  function makeDraggable(element) {
+    const dragIcons = element.querySelectorAll('.drag-icon');
+    let isDragging = false;
+    let currentX = 0;
+    let currentY = 0;
+    let initialX = 0;
+    let initialY = 0;
+    let activeDragCorner = null;
+    
+    dragIcons.forEach(icon => {
+      icon.addEventListener('mousedown', function(e) {
+        e.stopPropagation();
+        activeDragCorner = this.getAttribute('data-drag');
+        initialX = e.clientX - currentX;
+        initialY = e.clientY - currentY;
+        isDragging = true;
+        element.style.zIndex = '1000001';
+        element.style.cursor = 'grabbing';
+      });
+    });
+    
+    document.addEventListener('mousemove', function(e) {
+      if (isDragging) {
+        e.preventDefault();
+        currentX = e.clientX - initialX;
+        currentY = e.clientY - initialY;
+        
+        const maxX = window.innerWidth - element.offsetWidth;
+        const maxY = window.innerHeight - element.offsetHeight;
+        
+        currentX = Math.max(0, Math.min(currentX, maxX));
+        currentY = Math.max(0, Math.min(currentY, maxY));
+        
+        element.style.transform = `translate(${currentX}px, ${currentY}px)`;
+      }
+    });
+    
+    document.addEventListener('mouseup', function() {
+      isDragging = false;
+      activeDragCorner = null;
+      element.style.cursor = '';
+      setTimeout(() => {
+        element.style.zIndex = '999999';
+      }, 100);
+    });
+    
+    // Touch support for mobile
+    dragIcons.forEach(icon => {
+      icon.addEventListener('touchstart', function(e) {
+        e.stopPropagation();
+        activeDragCorner = this.getAttribute('data-drag');
+        const touch = e.touches[0];
+        initialX = touch.clientX - currentX;
+        initialY = touch.clientY - currentY;
+        isDragging = true;
+        element.style.zIndex = '1000001';
+      });
+    });
+    
+    document.addEventListener('touchmove', function(e) {
+      if (isDragging) {
+        e.preventDefault();
+        const touch = e.touches[0];
+        currentX = touch.clientX - initialX;
+        currentY = touch.clientY - initialY;
+        
+        const maxX = window.innerWidth - element.offsetWidth;
+        const maxY = window.innerHeight - element.offsetHeight;
+        
+        currentX = Math.max(0, Math.min(currentX, maxX));
+        currentY = Math.max(0, Math.min(currentY, maxY));
+        
+        element.style.transform = `translate(${currentX}px, ${currentY}px)`;
+      }
+    });
+    
+    document.addEventListener('touchend', function() {
+      isDragging = false;
+      activeDragCorner = null;
+      setTimeout(() => {
+        element.style.zIndex = '999999';
+      }, 100);
+    });
+  }
+  
+  makeDraggable(loginBox);
+  makeDraggable(signalBox);
+  makeDraggable(signalLogo);
+  
+  // --- Signal System & Popups ---
+  
+  let redirectTimer;
+  telegramLogo.addEventListener('click', function() {
+    telegramPopup.style.display = 'block';
+    let seconds = 3;
+    countdownElement.textContent = `Redirecting ${seconds}...`;
+    redirectTimer = setInterval(function() {
+      seconds--;
+      countdownElement.textContent = `Redirecting ${seconds}...`;
+      if (seconds <= 0) {
+        clearInterval(redirectTimer);
+        telegramPopup.style.display = 'none';
+        window.open(config.telegram2, '_blank');
+      }
+    }, 1000);
+  });
+  
+  hideBtn.addEventListener('click', function() {
+    if (isLoggedIn) {
+      signalBox.style.display = 'none';
+      signalLogo.style.display = 'flex';
+      isMinimized = true;
+      const rect = signalBox.getBoundingClientRect();
+      signalLogo.style.top = rect.top + 'px';
+      signalLogo.style.left = rect.left + 'px';
+    }
+  });
+  
+  signalLogo.addEventListener('click', function() {
+    if (isMinimized) {
+      if (isLoggedIn) {
+        signalLogo.style.display = 'none';
+        signalBox.style.display = 'block';
+      } else {
+        signalLogo.style.display = 'none';
+        loginBox.style.display = 'block';
+      }
+      isMinimized = false;
+    }
+  });
+  
+  function updateTimerDisplay(seconds) {
+    if (!timerDisplay) return;
+    
+    timerDisplay.textContent = seconds.toString().padStart(2, '0');
+    timerDisplay.className = 'timer';
+    
+    if (seconds <= 5) {
+      timerDisplay.classList.add('critical');
+    } else if (seconds <= 15) {
+      timerDisplay.classList.add('warning');
+    }
+  }
+  
+  async function updateSignalData() {
+    try {
+      const signalData = await signalApi.fetchSignal();
+      
+      signalDisplay.textContent = signalData.signal;
+      signalNumber.textContent = signalData.number;
+      
+      updateTimerDisplay(signalData.time_remaining);
+      
+      return signalData;
+      
+    } catch (error) {
+      console.error('Error updating signal:', error);
+    }
+  }
+  
+  function startSignalSystem() {
+    updateSignalData().then(() => {
+      signalApi.startTimer(function(seconds) {
+        updateTimerDisplay(seconds);
+        
+        if (seconds === 30) {
+          updateSignalData();
+        }
+      });
+    });
+  }
+  
+  // --- Initialization & Security ---
+  
+  const fontAwesome = document.createElement('link');
+  fontAwesome.rel = 'stylesheet';
+  fontAwesome.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+  document.head.appendChild(fontAwesome);
+  
+  setTimeout(() => {
+    if (telegramLogo) {
+      telegramLogo.innerHTML = '<i class="fab fa-telegram-plane"></i>';
+    }
+  }, 1000);
+  
+  // Anti-debugging / Security Checks (Preserving requested security style)
+  let debugCheckCount = 0;
+  let lastDebugTime = 0;
+  
+  const securityChecker = setInterval(function() {
+    const now = Date.now();
+    
+    const start = performance.now();
+    debugger; // Anti-debug trigger
+    const end = performance.now();
+    
+    if (end - start > 200) {
+      debugCheckCount++;
+      lastDebugTime = now;
+    }
+    
+    if (debugCheckCount >= 3 && now - lastDebugTime < 5000) {
+      showHackerMessage();
+      clearInterval(securityChecker);
+    }
+    
+    if (now - lastDebugTime > 10000) {
+      debugCheckCount = 0;
+    }
+  }, 1000);
+  
+  // Console protection
+  const originalConsole = {};
+  ['log', 'info', 'warn', 'error', 'debug'].forEach(method => {
+    originalConsole[method] = console[method];
+    console[method] = function(...args) {
+      securityAttempts++;
+      if (securityAttempts >= 3 && !debugDetected) {
+        showHackerMessage();
+      }
+      originalConsole[method].apply(console, args);
+    };
+  });
+  
+  // Key listeners
+  document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey && e.shiftKey && e.key === 'I') || 
+        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+        (e.ctrlKey && e.shiftKey && e.key === 'C') ||
+        e.key === 'F12') {
+      e.preventDefault();
+      securityAttempts++;
+      if (securityAttempts >= 2 && !debugDetected) {
+        showHackerMessage();
+      }
+      return false;
+    }
+  });
+  
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    securityAttempts++;
+    if (securityAttempts >= 3 && !debugDetected) {
+      showHackerMessage();
+    }
+    return false;
+  });
+  
+  // Final setup
+  createStars();
+  
+  document.body.style.opacity = '0';
+  setTimeout(() => {
+    document.body.style.transition = 'opacity 0.5s';
+    document.body.style.opacity = '1';
+  }, 500);
+  
+  // Initial fake signal data
+  signalApi.generateRandomSignal();
+  signalDisplay.textContent = signalApi.getCurrentSignal().signal;
+  signalNumber.textContent = signalApi.getCurrentSignal().number;
+  updateTimerDisplay(signalApi.getCurrentSignal().time_remaining);
+  
+  passwordInput.addEventListener('focus', function() {
+    this.style.color = '#f00';
+  });
+  
+  // Image fallback
+  const images = document.querySelectorAll('img');
+  images.forEach(img => {
+    img.onerror = function() {
+      this.style.display = 'none';
+      const parent = this.parentElement;
+      parent.style.background = 'linear-gradient(135deg, #f00 0%, #00f 50%, #0f0 100%)';
+      parent.style.display = 'flex';
+      parent.style.justifyContent = 'center';
+      parent.style.alignItems = 'center';
+      parent.innerHTML = '<span style="color:#fff;font-size:20px;font-weight:bold;text-shadow:0 0 10px #000;">DARK</span>';
+    };
+  });
+});
+</script>
+</body>
+</html>
